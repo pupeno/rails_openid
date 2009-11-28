@@ -1,4 +1,4 @@
-= rails-openid
+= rails_openid
 
 Description goes here.
 
