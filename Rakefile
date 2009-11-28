@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "rails_openid"
-    gem.summary = "ruby-openid wrappers to make it simpler"
-    gem.description = "ruby-openid wrappers to make it simpler"
+    gem.summary = "ruby-openid wrappers to make it simpler for a rails app"
+    gem.description = "ruby-openid wrappers to make it simpler for a rails app"
     gem.email = "pupeno@pupeno.com"
     gem.homepage = "http://github.com/pupeno/rails_openid"
     gem.authors = ["J. Pablo Fernández"]
