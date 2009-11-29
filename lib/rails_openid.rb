@@ -10,9 +10,9 @@ module RailsOpenId
       redirect_to fallback
       return
     end
-  
+    
     oidreq = consumer.begin(identifier)
-  
+    
     if not meta.empty?
       # Request email, nickname and fullname.
       sregreq = OpenID::SReg::Request.new
@@ -20,7 +20,7 @@ module RailsOpenId
       oidreq.add_extension(sregreq)
       oidreq.return_to_args['did_sreg'] = 'y'
     end
-  
+    
     if oidreq.send_redirect?(root_url, return_to)
       redirect_to oidreq.redirect_url(root_url, return_to)
     else
@@ -33,11 +33,11 @@ module RailsOpenId
     redirect_to fallback
     return
   end
-
+  
   def process_open_id_response(params, current_url, fallback)
     parameters = params.reject {|k,v| request.path_parameters[k] }
     oidresp = consumer.complete(parameters, current_url)
-  
+    
     if oidresp.status == OpenID::Consumer::SUCCESS
       data = nil
       if params[:did_sreg]
@@ -56,9 +56,9 @@ module RailsOpenId
       return nil
     end
   end
-
+  
   private
-
+  
   def consumer
     if @consumer.nil?
       dir = Pathname.new(RAILS_ROOT).join('db').join('cstore')
