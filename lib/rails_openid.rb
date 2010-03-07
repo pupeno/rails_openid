@@ -1,3 +1,6 @@
+# coding: utf-8
+# Copyright 2010 J. Pablo Fernández
+
 require 'openid/extensions/sreg'
 require 'openid/store/filesystem'
 
