@@ -42,12 +42,14 @@ module RailsOpenId
     oidresp = consumer.complete(parameters, current_url)
     
     if oidresp.status == OpenID::Consumer::SUCCESS
-      data = nil
+      data = {}
       if params[:did_sreg]
         sreg_resp = OpenID::SReg::Response.from_success_response(oidresp)
-        data = sreg_resp.data
+        data.merge! sreg_resp.data
       end
-      return oidresp, data
+      data[:identity_url] = oidresp.identity_url
+      data[:display_identifier] = oidresp.display_identifier
+      return data
     else
       # Possible non-succes statuses: OpenID::Consumer::FAILURE, OpenID::Consumer::SETUP_NEEDED, OpenID::Consumer::CANCEL
       if not oidresp.display_identifier.blank?
