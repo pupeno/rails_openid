@@ -1,0 +1,19 @@
+<h1>Log in or Register</h1>
+
+<%=h flash[:notice] %>
+<%=h flash[:message] %>
+
+<p>You don't need to register on this web site. That happens automatically the
+  first time you log in. To log in, just pick one of the services you'd like to
+  use for your identity and you'll be in.</p>
+<p>For example, if you have a Gmail account, you could use Google, if you have a
+  Yahoo! Mail account, then use Yahoo. If you don't have any, you can create an
+  account in any of those or in myOpenID. If you know what you are doing, you
+  can use any OpenID server.</p>
+
+
+<% form_tag session_url, :method => :post, :class => :openid do -%>
+  <%= label :openid_identifier, "OpenID" %>
+  <%= text_field_tag :openid_identifier %>
+  <%= submit_tag "Log in" %>
+<% end -%>

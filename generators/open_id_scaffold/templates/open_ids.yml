@@ -1,0 +1,34 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+# TODO: change the user: part if your user model is called firently or rewrite
+# this file to fit your fixtures.
+
+one:
+  # TODO: change to point to an actual user.
+  user: one
+  identifier: http://example.com/one
+  display_identifier: http://example.com/one
+
+the_one:
+  # TODO: change to point to the same user as before.
+  user: one
+  identifier: http://one.example.org
+  display_identifier: http://one.example.org
+
+two:
+  # TODO: change to point to an actual user.
+  user: two
+  identifier: http://example.com/two
+  display_identifier: http://example.com/two
+
+# == Schema Information
+#
+# Table name: open_ids
+#
+#  id                 :integer         not null, primary key
+#  user_id            :integer
+#  identifier         :string(255)
+#  display_identifier :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#

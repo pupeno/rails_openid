@@ -68,6 +68,39 @@ and you'll get this and all the gems your Rails project need installed.
 Configuring your Rails project like that is something you'll need anyway, so
 this is my recommended way.
 
+== Getting started
+
+A good way to get started is to run the open_id_scaffold generator:
+
+    ./script/generate open_id_scaffold
+
+Be sure to have the following line in your environment.rb (or the equivalent
+in Rails 3)
+
+    config.gem "rails_openid"
+    config.gem "ruby-openid", :lib => "openid"
+
+To be able to run the provided tests, you'll need mocha, so add:
+
+    config.gem "mocha"
+
+to your config/environments/test.rb
+
+If you don't have a user model, you'll want to create one. You can do it like
+this:
+
+    ./script/generate model User name:string email:string nickname:string
+
+To link your user model to their open ids add the following line to your user
+model:
+
+    has_many :open_ids
+
+rails_openid come with tests you already have in your project. Their failures
+will show things you need to complete on your own. Also, if you go through the
+generated code, search for TODOs and you'll find the places where there's code
+you are likely to want to change.
+
 == API Documentation
 
 Up to date api documentation should be automatically generated on
