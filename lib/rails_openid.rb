@@ -9,6 +9,7 @@ module RailsOpenId
     # Create the OpenID request, and in the process, verify the URI is valid.
     identifier = params[:openid_identifier]
     if identifier.blank?
+      # TODO: throw an exception, don't redirect.
       flash[:error] = "Please, enter an OpenID identifier (that is, your OpenID address)."
       redirect_to fallback
       return
@@ -32,6 +33,7 @@ module RailsOpenId
       render :text => oidreq.html_markup(root_url, root_url, :form_tag_attrs => {'id' => 'openid_form'})
     end
   rescue OpenID::OpenIDError => e
+    # TODO: throw an exception, don't redirect.
     flash[:error] = "#{identifier} doesn't seem to be a valid, working OpenID. Maybe it has a typo?"
     redirect_to fallback
     return
@@ -51,6 +53,7 @@ module RailsOpenId
       data[:display_identifier] = oidresp.display_identifier
       return data
     else
+      # TODO: throw an exception, don't redirect.
       # Possible non-succes statuses: OpenID::Consumer::FAILURE, OpenID::Consumer::SETUP_NEEDED, OpenID::Consumer::CANCEL
       if not oidresp.display_identifier.blank?
         flash[:error] = "We couldn't verify your OpenID #{oidresp.display_identifier}."
