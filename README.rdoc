@@ -4,6 +4,14 @@ Rails OpenId is a very small library that intends to abstract away a little bit
 of ruby-openid to make it easier to use in Rails applications. It is a very
 infant library, use at your own peril.
 
+== Where?
+
+The canonical places for this gem are:
+
+* http://github.com/pupeno/rails_openid
+* http://rubygems.org/gems/rails_openid
+* http://rdoc.info/projects/pupeno/rails_openid
+
 == Installation
 
 This gem is provided through RubyGems.org so you need to have gem configured to
